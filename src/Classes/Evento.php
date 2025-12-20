@@ -38,17 +38,18 @@ class Evento
         $currentid = $events['currentid'];
         $events['eventos'][$currentid] = $event;
 
-        echo '<pre>'; print_r($events); echo '</pre>';
         $this->save($events);
     }
 
-    public function deleteByTitle(string $titulo): void
+    public function delete(string $id): void
     {
-        $events = array_filter(
-            $this->load(),
-            fn($e) => $e['titulo'] !== $titulo
+        $full = $this->load();
+        $full['eventos'] = array_filter(
+            $full['eventos'],
+            fn($key) => ($key != $id),
+            ARRAY_FILTER_USE_KEY 
         );
 
-        $this->save(array_values($events));
+        $this->save($full);
     }
 }
