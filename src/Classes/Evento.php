@@ -33,7 +33,12 @@ class Evento
     public function add(array $event): void
     {
         $events = $this->load();
-        $events[] = $event;
+        isset($events['currentid']) ? $events['currentid']++ : $events['currentid'] = 1;
+
+        $currentid = $events['currentid'];
+        $events['eventos'][$currentid] = $event;
+
+        echo '<pre>'; print_r($events); echo '</pre>';
         $this->save($events);
     }
 

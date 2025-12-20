@@ -1,7 +1,7 @@
 <?php
 require "Classes/Evento.php";
 
-/* $json = [
+$array = [
     'nextid' => '1',
     'eventos' => [
         '1'=> [
@@ -18,14 +18,16 @@ require "Classes/Evento.php";
     ]
 ];
 
-file_put_contents("data/eventos.json", json_encode($json, JSON_UNESCAPED_UNICODE));
+$evento = [
+    "data"=> date('05-10'),
+    "titulo"=> "Dia das Mães",
+    "descricao"=> "sla man se fude"
+];
 
-$decode = json_decode(file_get_contents("data/eventos.json"), true);
+$Eventos = new Evento("data/eventos.json");
+echo '<pre>'; print_r($Eventos->all()['eventos']['1']); echo '</pre>';
 
-echo '<pre>'; print_r($decode); echo '</pre>';
- */
 
-$json = new Evento("data/evenos.json");
-$eventos = $json->all();
+$Eventos->add($evento);
 
-echo '<pre>'; print_r($eventos); echo '</pre>';
+//echo '<pre>'; print_r($Eventos->all()); echo '</pre>';
