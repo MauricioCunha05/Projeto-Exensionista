@@ -1,3 +1,7 @@
+<?php
+require("Classes/Evento.php")
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
