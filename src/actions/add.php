@@ -1,0 +1,17 @@
+<?php
+require_once("../includes/config.php");
+if (empty($_SESSION['admin'])) {
+    http_response_code(403);
+    exit;
+}
+
+$evento_add = [
+    'data' => $data = DateTime::createFromFormat('Y-m-d', $_POST["data"])->format('d/m/Y'),
+    'titulo' => $_POST['titulo'],
+    'descricao' => $_POST['descricao'],
+];
+
+$Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
+$Eventos->add($evento_add);
+header("Location: /index.php?page=admin/eventos_view");
+?>

@@ -1,9 +1,9 @@
 <?php
-$Eventos = new Evento("data/eventos.json");
+$Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $eventos_array = $Eventos->all()['eventos'];
 uasort($eventos_array, function ($a, $b) {
-    $dateA = DateTime::createFromFormat('m-d-Y', $a['data'] . '-2025');
-    $dateB = DateTime::createFromFormat('m-d-Y', $b['data'] . '-2025');
+    $dateA = DateTime::createFromFormat('d/m/Y', $a['data']);
+    $dateB = DateTime::createFromFormat('d/m/Y', $b['data']);
 
     return $dateA <=> $dateB;
 });

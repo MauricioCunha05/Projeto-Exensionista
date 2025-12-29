@@ -1,25 +1,25 @@
 {
-    "currentid": 5,
+    "currentid": 7,
     "eventos": {
         "1": {
-            "data": "03-10",
+            "data": "20\/10\/2025",
             "titulo": "Dia das Mães",
-            "descricao": "testeasdasdas"
-        },
-        "2": {
-            "data": "02-14",
-            "titulo": "Dia das Mães",
-            "descricao": "testeasdasdas"
+            "descricao": "sla man se fude 3"
         },
         "3": {
-            "data": "02-18",
+            "data": "05\/08\/2026",
+            "titulo": "Dia de agosto",
+            "descricao": "sla"
+        },
+        "5": {
+            "data": "30\/12\/2025",
             "titulo": "Dia das Mães",
             "descricao": "testeasdasdas"
         },
-        "5": {
-            "data": "12-02",
-            "titulo": "Dia das Mães",
-            "descricao": "testeasdasdas"
+        "7": {
+            "data": "30\/12\/2025",
+            "titulo": "amanhã",
+            "descricao": "amanhã amanhã"
         }
     }
 }

@@ -52,4 +52,10 @@ class Evento
 
         $this->save($full);
     }
+    public function edit(string $id, array $event): void
+    {
+        $edited = $this->load();
+        $edited['eventos'][$id] = $event; 
+        $this->save($edited);
+    }
 }

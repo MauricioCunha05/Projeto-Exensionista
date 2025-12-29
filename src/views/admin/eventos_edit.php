@@ -1,38 +1,20 @@
 <?php
+
 if (!defined('APP_BOOTSTRAPPED')) {
     http_response_code(403);
     exit('Forbidden');
 }
 
-$Eventos = new Evento("data/eventos.json");
-$eventos_array = $Eventos->all();
+if (empty($_POST)){
+    header("Location: /index.php");
+}
 
+$data = DateTime::createFromFormat('d/m/Y', $_POST["data"])->format('Y-m-d');
 ?>
-
-<table id="Eventos">
-    <tr>
-        <th>ID</th>
-        <th>Data</th>
-        <th>Evento</th>
-        <th>Descrição</th>
-        <th>Botões</th>
-    </tr>
-    <?php 
-    foreach ($eventos_array['eventos'] as $key => $evento) {
-        echo "<tr>";
-        echo "<td>".$key."</td>";
-        echo "<td>".$evento["data"]."</td>";
-        echo "<td>".$evento["titulo"]."</td>";
-        echo "<td>".$evento["descricao"]."</td>";
-        echo '
-            <td>
-                <form method="post" action="views/admin/eventos_del.php" style="display:inline">
-                    <input type="hidden" name="id" value="'.$key.'">
-                    <button type="submit">Excluir</button>
-                </form>
-            </td>';
-
-        echo "</tr>";
-    }
-    ?>
-</table>
+<form action="actions/edit.php" method="post">
+    <input type="hidden" name="id" value="<?= $_POST['id'] ?>">
+    <input type="date" name="data" min="<?= date('Y-m-d') ?>" value="<?= $data ?>">
+    <input type="text" name="titulo" value="<?= $_POST["titulo"] ?>" placeholder="Título">
+    <input type="text" name="descricao" value="<?= $_POST["descricao"] ?>" placeholder="Descrição">
+    <button type="submit">Salvar</button>
+</form>

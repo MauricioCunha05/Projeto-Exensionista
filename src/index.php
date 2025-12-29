@@ -1,5 +1,5 @@
 <?php
-require_once("config.php");
+require_once __DIR__."/includes/config.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,15 +17,15 @@ require_once("config.php");
                 <ul id="Menu">
                     <?php
                         if($is_admin){
-                            echo '<li><a href="views/logoff.php">Sair</a></li>';
+                            echo '<li><a href="actions/logoff.php">Sair</a></li>';
                         }else{
-                            echo '<li><a href="?page=login">Login</a></li>';    
+                            echo '<li><a href="?page=public/login">Login</a></li>';    
                             
                         }
                     ?>
-                    <li><a href="?page=sobre">Sobre</a></li>
-                    <li><a href="?page=<?php echo $is_admin ? 'admin/eventos_edit':'eventos'?>">Eventos</a></li>
-                    <li><a href="?page=doacao">Doações</a></li>
+                    <li><a href="?page=public/sobre">Sobre</a></li>
+                    <li><a href="?page=<?php echo $is_admin ? 'admin/eventos_view':'public/eventos'?>">Eventos</a></li>
+                    <li><a href="?page=public/doacao">Doações</a></li>
                 </ul>
             </nav>
         </header>

@@ -1,4 +1,4 @@
-<form action="/views/verify.php" method="post">
+<form action="/actions/auth.php" method="post">
     Senha: <input type="text" name="pass">
 </form>
 
