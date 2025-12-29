@@ -1,6 +1,11 @@
 <?php
-require("../../Classes/Evento.php");
+require_once("../../config.php");
+if (empty($_SESSION['admin'])) {
+    http_response_code(403);
+    exit;
+}
+
 $Eventos = new Evento("../../data/eventos.json");
 $Eventos->delete($_POST["id"]);
-header("Location: /views/admin/eventos_edit.php");
+header("Location: /index.php?page=admin/eventos_edit");
 ?>

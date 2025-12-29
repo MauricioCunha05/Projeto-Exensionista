@@ -1,8 +1,11 @@
 <?php
-require("../../Classes/Evento.php");
-$Eventos = new Evento("../../data/eventos.json");
+if (!defined('APP_BOOTSTRAPPED')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+
+$Eventos = new Evento("data/eventos.json");
 $eventos_array = $Eventos->all();
-$sla = true;
 
 ?>
 
@@ -23,7 +26,7 @@ $sla = true;
         echo "<td>".$evento["descricao"]."</td>";
         echo '
             <td>
-                <form method="post" action="eventos_del.php" style="display:inline">
+                <form method="post" action="views/admin/eventos_del.php" style="display:inline">
                     <input type="hidden" name="id" value="'.$key.'">
                     <button type="submit">Excluir</button>
                 </form>

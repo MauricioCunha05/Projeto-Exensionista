@@ -1,21 +1,24 @@
 <?php
 $Eventos = new Evento("data/eventos.json");
-$eventos_array = $Eventos->all();
-$sla = true;
+$eventos_array = $Eventos->all()['eventos'];
+uasort($eventos_array, function ($a, $b) {
+    $dateA = DateTime::createFromFormat('m-d-Y', $a['data'] . '-2025');
+    $dateB = DateTime::createFromFormat('m-d-Y', $b['data'] . '-2025');
+
+    return $dateA <=> $dateB;
+});
 
 ?>
 
 <table id="Eventos">
     <tr>
-        <?php echo ($sla) ?  "<th>ID</th>":"" ?>
         <th>Data</th>
         <th>Evento</th>
         <th>Descrição</th>
     </tr>
     <?php 
-    foreach ($eventos_array['eventos'] as $key => $evento) {
+    foreach ($eventos_array as $key => $evento) {
         echo "<tr>";
-        echo ($sla) ?  "<td>".$key."</td>":"";
         echo "<td>".$evento["data"]."</td>";
         echo "<td>".$evento["titulo"]."</td>";
         echo "<td>".$evento["descricao"]."</td>";
