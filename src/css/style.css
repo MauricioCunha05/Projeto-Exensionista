@@ -1,19 +1,26 @@
 body{
     margin: 0%;
     text-align: center;
+    background-color: rgb(11, 177, 177);
+    color: white;
+}
+
+main{
+    display: flex;
+    justify-content: center;
 }
 
 nav{
     background-color: rgb(22, 22, 95);
-    display: grid;
     place-items: center;
+    
 }
 #Menu{
     display: flex;
     text-align: center;
     flex-direction: row;
     width: 50%;
-    height: 8vh;
+    height: 6vh;
     margin: 0%;
     align-items: center;
     justify-content: space-between;
@@ -24,8 +31,20 @@ nav{
 a{
     text-decoration: none;
     color: white;
+    
 }
 
-text{
-    color: black;
+a:hover{
+    color:gold
+}
+
+#Eventos{
+    width: 70vw;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 3%;
+  background-color: rgb(12, 203, 228);
 }
