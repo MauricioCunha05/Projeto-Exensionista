@@ -5,7 +5,7 @@ if (empty($_SESSION['admin'])) {
     exit;   
 }
 $evento_edit = [
-    'data' => $data = DateTime::createFromFormat('Y-m-d', $_POST["data"])->format('d/m/Y'),
+    'data' => $data = date('d/m/Y', strtotime($_POST["data"])),
     'titulo' => $_POST['titulo'],
     'descricao' => $_POST['descricao'],
 ];

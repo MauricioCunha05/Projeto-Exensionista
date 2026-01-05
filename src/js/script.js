@@ -1,9 +1,23 @@
-modal = document.getElementById('descModal');
+descModal = document.getElementById('descModal');
+addModal = document.getElementById('addModal');
+editModal = document.getElementById('editModal');
 
-modal.addEventListener('show.bs.modal', event => {
+
+descModal.addEventListener('show.bs.modal', event => {
   btn = event.relatedTarget;
-  modal.querySelector('.modal-body').textContent =
+  console.log(event)
+  descModal.querySelector('.modal-body').textContent =
     btn.getAttribute('data-bs-descricao');
-  modal.querySelector('.modal-title').textContent =
+  descModal.querySelector('.modal-title').textContent =
     btn.getAttribute('data-bs-titulo');
 });
+
+addModal.addEventListener('hidden.bs.modal', event => {
+    event.target.querySelector('form').reset()
+});
+
+/* editModal.addEventListener('show.bs.modal', event => {
+  btn = event.relatedTarget;
+  modal.querySelector(input[name='login']).textContent =
+    btn.getAttribute('data-bs-descricao');
+}); */

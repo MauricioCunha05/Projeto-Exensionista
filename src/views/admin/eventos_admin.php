@@ -6,21 +6,13 @@ if (!defined('APP_BOOTSTRAPPED')) {
 
 $Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $eventos_array = $Eventos->all()['eventos'];
-uasort($eventos_array, function ($a, $b) {
-    $dateA = DateTime::createFromFormat('d/m/Y', $a['data']);
-    $dateB = DateTime::createFromFormat('d/m/Y', $b['data']);
-
-    return $dateA <=> $dateB;
-});
+uasort($eventos_array, fn($a, $b) => $a <=> $b);
 
 
-include 'modal_desc.php';
+include 'modals/modal_desc.php';
+include 'modals/modal_add.php';
+include 'modals/modal_edit.php'
 ?>
-
-
-
-
-
 
 <div class="d-flex flex-column align-items-center mt-2">
     <div class="table-responsive border rounded overflow-auto" id="viewtable-container">
@@ -77,5 +69,11 @@ include 'modal_desc.php';
             </tbody>
         </table>
     </div>
-    <a class="btn" href="?page=admin/eventos_add" id="addbutton">Novo Evento</a>
+    <button
+        class="btn"
+        data-bs-toggle='modal'
+        data-bs-target='#addModal'
+        id="addbutton">
+    Novo Evento
+    </button>
 </div>
