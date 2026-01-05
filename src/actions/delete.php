@@ -7,5 +7,5 @@ if (empty($_SESSION['admin'])) {
 
 $Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $Eventos->delete($_POST["id"]);
-header("Location: /index.php?page=admin/eventos_view");
+header("Location: /index.php?page=admin/eventos_admin");
 ?>

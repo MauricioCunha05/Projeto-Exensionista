@@ -15,6 +15,6 @@ $data = DateTime::createFromFormat('d/m/Y', $_POST["data"])->format('Y-m-d');
     <input type="hidden" name="id" value="<?= $_POST['id'] ?>">
     <input type="date" name="data" min="<?= date('Y-m-d') ?>" value="<?= $data ?>">
     <input type="text" name="titulo" value="<?= $_POST["titulo"] ?>" placeholder="Título">
-    <input type="text" name="descricao" value="<?= $_POST["descricao"] ?>" placeholder="Descrição">
+    <textarea name="descricao" placeholder="Descrição"><?= $_POST["descricao"] ?></textarea>
     <button type="submit">Salvar</button>
 </form>

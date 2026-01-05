@@ -11,5 +11,5 @@ $evento_edit = [
 ];
 $Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $Eventos->edit($_POST["id"], $evento_edit);
-header("Location: /index.php?page=admin/eventos_view");
+header("Location: /index.php?page=admin/eventos_admin");
 ?>

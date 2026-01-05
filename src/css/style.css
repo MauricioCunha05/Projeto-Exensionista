@@ -1,50 +1,48 @@
 body{
     margin: 0%;
-    text-align: center;
-    background-color: rgb(11, 177, 177);
-    color: white;
-}
-
-main{
-    display: flex;
-    justify-content: center;
+    background-color: rgb(248, 250, 252);
 }
 
 nav{
-    background-color: rgb(22, 22, 95);
-    place-items: center;
+    background-color: rgb(15, 23, 42);
+}
+
+#bootstrap-overrides .nav-link { 
     
-}
-#Menu{
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    width: 50%;
-    height: 6vh;
-    margin: 0%;
-    align-items: center;
-    justify-content: space-between;
-    list-style-type:none;
-    
+  color: rgb(248, 250, 252);    
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    
+#bootstrap-overrides #addform, #viewtable :not(button) {
+    background-color: rgb(241, 245, 249);
 }
 
-a:hover{
-    color:gold
+textarea {
+  field-sizing: content;
 }
 
-#Eventos{
-    width: 70vw;
+#addbutton{
+    background-color: rgb(37, 99, 235);
+    color: #fff;
 }
 
-table, th, td {
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 3%;
-  background-color: rgb(12, 203, 228);
+#addbutton:hover{
+    background-color: rgb(30, 64, 175);
+}
+
+#editbutton{
+    background-color: rgb(59, 130, 246);
+    color: #fff;
+}
+
+#editbutton:hover{
+    background-color: rgb(37, 99, 235);
+}
+
+#viewtable-container{
+    height: 60vh;
+    width: 50vw;
+}
+
+#bootstrap-overrides .text-truncate{
+    text-overflow:unset;
 }

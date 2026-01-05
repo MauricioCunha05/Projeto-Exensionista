@@ -6,6 +6,6 @@ if(!password_verify($_POST['pass'], getenv('ADMIN_PASSWORD_HASH'))) {
     exit;
 }else{
     $_SESSION['admin'] = true;
-    header("Location: /index.php?page=admin/eventos_view");
+    header("Location: /index.php?page=admin/eventos_admin");
     exit;
 }

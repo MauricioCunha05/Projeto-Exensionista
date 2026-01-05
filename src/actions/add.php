@@ -13,5 +13,5 @@ $evento_add = [
 
 $Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $Eventos->add($evento_add);
-header("Location: /index.php?page=admin/eventos_view");
+header("Location: /index.php?page=admin/eventos_admin");
 ?>

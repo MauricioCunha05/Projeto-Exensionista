@@ -8,30 +8,28 @@ require_once __DIR__."/includes/config.php";
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php ?></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
     </head>
 
-    <body>
+    <body id="bootstrap-overrides">
         <header>
-            <nav>
-                <ul id="Menu">
-                    <?php
-                        if($is_admin){
-                            echo '<li><a href="actions/logoff.php">Sair</a></li>';
-                        }else{
-                            echo '<li><a href="?page=public/login">Login</a></li>';    
-                            
-                        }
-                    ?>
-                    <li><a href="?page=public/sobre">Sobre</a></li>
-                    <li><a href="?page=<?php echo $is_admin ? 'admin/eventos_view':'public/eventos'?>">Eventos</a></li>
-                    <li><a href="?page=public/doacao">Doações</a></li>
-                </ul>
+            <nav class="navbar border-0">
+                <div class="container flex-row justify-content-center">
+                    <ul class="navbar-nav flex-row gap-4 fs-5">
+                        <li class="nav-item"><a class="nav-link"<?= $is_admin ? 'href="actions/logoff.php">Sair': 'href="?page=public/login">Login' ?> </a></li>
+                        <li class="nav-item"><a class="nav-link" href="?page=public/sobre">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?page=<?= $is_admin ? 'admin/eventos_admin':'public/eventos'?>">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?page=public/doacao">Doações</a></li>  
+                    </ul>
+                </div>
             </nav>
         </header>
         
         <main>
-            <h1><?php include 'views/'.$page.'.php'; ?></h1>
+            <?php include 'views/'.$page.'.php'; ?>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

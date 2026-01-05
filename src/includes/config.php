@@ -5,7 +5,7 @@ session_start();
 $is_admin = ($_SESSION['admin'] ?? false) === true;
 $page = $_GET['page'] ?? 'public/sobre';
 define('APP_BOOTSTRAPPED', true);
-$allowed_pages = ['public/login', 'public/sobre', 'public/eventos', 'public/doacao', 'admin/eventos_view', 'admin/eventos_edit', 'admin/eventos_add'];
+$allowed_pages = ['public/login', 'public/sobre', 'public/eventos', 'public/doacao', 'admin/eventos_admin', 'admin/eventos_edit', 'admin/eventos_add'];
 
 if (!in_array($page, $allowed_pages, true)) {
     header('Location: /index.php');

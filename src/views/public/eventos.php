@@ -10,7 +10,7 @@ uasort($eventos_array, function ($a, $b) {
 
 ?>
 
-<table id="Eventos">
+<table id="Eventos" class="well">
     <tr>
         <th>Data</th>
         <th>Evento</th>
