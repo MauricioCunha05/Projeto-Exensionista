@@ -1,17 +1,18 @@
 <div class="modal" tabindex="-1" id="editModal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="actions/add.php" method="post" class="fs-5" id="addform">
+      <form action="actions/edit.php" method="post" class="fs-5" id="editform">
         
             <div class="modal-header">
-                <h5 class="modal-title">Novo Evento</h5>
+                <h5 class="modal-title">Editar Evento</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
             <div class="modal-body">
+                <input type="hidden" name="id">
                 <div class="input-group">
                     <span class="input-group-text col-md-3">Data</span>
-                    <input type="date" class="form-control" id="inputData" name="data" min="<?= date('Y-m-d') ?>" max="<?= date('Y-12-31', strtotime('+5 years')) ?>" value="<?= date('Y-m-d') ?>" >
+                    <input type="date" class="form-control" id="inputData" name="data" min="<?= date('Y-m-d') ?>" max="<?= date('Y-12-31', strtotime('+5 years')) ?>" value="<?= date('Y-m-d', strtotime('+5 years'))  ?>" >
                 </div>
             
                 <div class="input-group">
@@ -27,7 +28,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Criar evento</button>
+                <button type="submit" class="btn btn-primary">Confirmar edição</button>
             </div>
         
         </form>

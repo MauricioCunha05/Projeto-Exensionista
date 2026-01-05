@@ -46,3 +46,7 @@ textarea {
 #bootstrap-overrides .text-truncate{
     text-overflow:unset;
 }
+
+#bootstrap-overrides .modal-body, textarea{
+    white-space: pre-line;
+}

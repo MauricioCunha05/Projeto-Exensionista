@@ -28,19 +28,20 @@ include 'modals/modal_edit.php'
             <tbody class="table-group-divider">
                 <?php
                 foreach ($eventos_array as $key => $evento) {
-                    echo "<tr>
-                            <td>".$evento["data"]."</td>
-                            <td class='text-nowrap' >".$evento["titulo"]."</td>
+                    echo "<tr data-id=".$key.">
+                            <td class='data-value'>".$evento["data"]."</td>
+                            <td class='text-nowrap titulo-value' >".$evento["titulo"]."</td>
 
                             <td>
                                 <div class=''>
-                                    <div class='descricao text-truncate' style='max-width:6.4rem; max-height:2rem'>".nl2br(htmlspecialchars($evento["descricao"]))."</div>
+                                    <div class='descricao text-truncate desc-value' style='max-width:6.4rem; max-height:2rem'>".$evento["descricao"]."</div>
                                     <a
                                         class='link-underline link-underline-opacity-0 text-nowrap'
                                         data-bs-toggle='modal'
                                         data-bs-target='#descModal'
                                         data-bs-descricao='".$evento["descricao"]."'
                                         data-bs-titulo='".$evento["titulo"]."'
+                                        data-bs-id = '".$key."'
                                         href='#'
                                         >
                                         Ver descrição completa
@@ -54,13 +55,13 @@ include 'modals/modal_edit.php'
                                         <input type='hidden' name='id' value='".$key."'>
                                         <button type='submit' class='btn btn-danger'>Excluir</button>
                                     </form>
-                                    <form method='post' action='?page=admin/eventos_edit' >
-                                        <input type='hidden' name='id' value=".$key.">
-                                        <input type='hidden' name='data' value=".$evento['data'].">
-                                        <input type='hidden' name='titulo' value=".$evento['titulo'].">
-                                        <input type='hidden' name='descricao' value=".$evento['descricao'].">
-                                        <button type='submit' class='btn btn-info' id='editbutton'>Editar</button>
-                                    </form>
+                                    <button
+                                        class='btn'
+                                        data-bs-toggle='modal'
+                                        data-bs-target='#editModal'
+                                        id='editbutton'>
+                                    Editar
+                                    </button>
                                 </div>
                             </td>
                         </tr>";
