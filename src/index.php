@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__."/includes/config.php";
+require 'views/public/modals/modal_login.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,20 @@ require_once __DIR__."/includes/config.php";
             <nav class="navbar border-0">
                 <div class="container flex-row justify-content-center">
                     <ul class="navbar-nav flex-row gap-4 fs-5">
-                        <li class="nav-item"><a class="nav-link"<?= $is_admin ? 'href="actions/logoff.php">Sair': 'href="?page=public/login">Login' ?> </a></li>
+                        <li class="nav-item">
+                        <?php
+                            if ($is_admin) {
+                                echo '<a class="nav-link" href="actions/logoff.php">Sair</a>';
+                            }else{
+                                echo '<a class="nav-link" 
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#loginModal"
+                                            href="#"
+                                        >Login</a>';
+                            }
+                        ?>
+                        </li>
+                        
                         <li class="nav-item"><a class="nav-link" href="?page=public/sobre">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link" href="?page=<?= $is_admin ? 'admin/eventos_admin':'public/eventos'?>">Eventos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?page=public/doacao">Doações</a></li>  

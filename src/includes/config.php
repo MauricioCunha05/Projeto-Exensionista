@@ -1,7 +1,14 @@
 <?php
+if (!(session_status() == PHP_SESSION_ACTIVE)){
+    session_start();
+}
+
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
+
 define('PROJECT_ROOT', dirname(__DIR__));
 require_once PROJECT_ROOT."/Classes/Evento.php";
-session_start();
 $is_admin = ($_SESSION['admin'] ?? false) === true;
 $page = $_GET['page'] ?? 'public/sobre';
 define('APP_BOOTSTRAPPED', true);

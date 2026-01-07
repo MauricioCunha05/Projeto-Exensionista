@@ -6,12 +6,18 @@ if (!defined('APP_BOOTSTRAPPED')) {
 
 $Eventos = new Evento(PROJECT_ROOT."/data/eventos.json");
 $eventos_array = $Eventos->all()['eventos'];
-uasort($eventos_array, fn($a, $b) => $a <=> $b);
+
+uasort($eventos_array, function ($a, $b) {
+    $ad = DateTime::createFromFormat('d/m/Y', $a['data']);
+    $bd = DateTime::createFromFormat('d/m/Y', $b['data']);
+    return $ad <=> $bd;   
+});
 
 
-include 'modals/modal_desc.php';
-include 'modals/modal_add.php';
-include 'modals/modal_edit.php'
+
+require PROJECT_ROOT.'/views/public/modals/modal_desc.php';
+require 'modals/modal_add.php';
+require 'modals/modal_edit.php'
 ?>
 
 <div class="d-flex flex-column align-items-center mt-2">
@@ -39,9 +45,6 @@ include 'modals/modal_edit.php'
                                         class='link-underline link-underline-opacity-0 text-nowrap'
                                         data-bs-toggle='modal'
                                         data-bs-target='#descModal'
-                                        data-bs-descricao='".$evento["descricao"]."'
-                                        data-bs-titulo='".$evento["titulo"]."'
-                                        data-bs-id = '".$key."'
                                         href='#'
                                         >
                                         Ver descrição completa
@@ -53,6 +56,7 @@ include 'modals/modal_edit.php'
                                 <div role='group' class='btn-group-vertical'>
                                     <form method='post' action='actions/delete.php'>
                                         <input type='hidden' name='id' value='".$key."'>
+                                        <input type='hidden' name='csrf' value='".$_SESSION['csrf']."'>
                                         <button type='submit' class='btn btn-danger'>Excluir</button>
                                     </form>
                                     <button

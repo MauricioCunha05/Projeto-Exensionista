@@ -12,7 +12,7 @@ nav{
   color: rgb(248, 250, 252);    
 }
 
-#bootstrap-overrides #addform, #viewtable :not(button), #viewtable-container {
+#bootstrap-overrides #viewtable :not(button), #viewtable-container, .modal-body {
     background-color: rgb(241, 245, 249);
 }
 

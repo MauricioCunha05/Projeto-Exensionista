@@ -7,12 +7,11 @@ function dmyToYmd(dmy) {
 }
 
 
-descModal = document.getElementById('descModal');
-addModal = document.getElementById('addModal');
-editModal = document.getElementById('editModal');
-addForm = addModal.querySelector('#addform');
-editForm = addModal.querySelector('#editform');
 
+
+
+// DESC
+descModal = document.getElementById('descModal');
 
 descModal.addEventListener('show.bs.modal', event => {
     row = event.relatedTarget.closest('tr');
@@ -23,28 +22,45 @@ descModal.addEventListener('show.bs.modal', event => {
         row.querySelector('.titulo-value').textContent
 });
 
-editModal.addEventListener('show.bs.modal', event => {
-    row = event.relatedTarget.closest('tr');
 
-    id = row.dataset.id
-    data = row.querySelector('.data-value').textContent
-    data = dmyToYmd(data)
-    titulo = row.querySelector('.titulo-value').textContent
-    desc = row.querySelector('.desc-value').textContent
+// EDIT
+const editModal = document.getElementById('editModal');
 
-    editModal.querySelector('[name="id"]').value = id
-    editModal.querySelector('[name="data"]').value = data
-    editModal.querySelector('[name="titulo"]').value = titulo
-    editModal.querySelector('[name="descricao"]').value = desc
+if (editModal) {
+    const editForm = editModal.querySelector('#editform');
 
-});
+    editModal.addEventListener('show.bs.modal', event => {
+        const row = event.relatedTarget?.closest('tr');
+        if (!row) return;
 
-//resets
+        const id = row.dataset.id;
+        const data = dmyToYmd(row.querySelector('.data-value')?.textContent ?? '');
+        const titulo = row.querySelector('.titulo-value')?.textContent ?? '';
+        const desc = row.querySelector('.desc-value')?.textContent ?? '';
 
-addModal.addEventListener('hidden.bs.modal', () => {
-    addForm.reset()
-});
+        editModal.querySelector('[name="id"]').value = id;
+        editModal.querySelector('[name="data"]').value = data;
+        editModal.querySelector('[name="titulo"]').value = titulo;
+        editModal.querySelector('[name="descricao"]').value = desc;
+    });
 
-editModal.addEventListener('hidden.bs.modal', () => {
-    editForm.reset()
-});
+    editModal.addEventListener('hidden.bs.modal', () => {
+        editForm.reset();
+    });
+}
+
+
+
+
+// ADD
+const addModal = document.getElementById('addModal');
+
+if (addModal) {
+    const addForm = addModal.querySelector('#addform');
+
+    addModal.addEventListener('hidden.bs.modal', () => {
+        addForm.reset();
+    });
+}
+
+
