@@ -14,19 +14,28 @@ nav{
 
 #bootstrap-overrides #viewtable :not(button), #viewtable-container, .modal-body {
     background-color: rgb(241, 245, 249);
+    margin-right: 15%;
+    margin-top: 6%;
 }
+
+img{
+    margin-right: 15%;
+}
+
 
 textarea {
   field-sizing: content;
 }
 
 #addbutton{
-    background-color: rgb(37, 99, 235);
-    color: #fff;
+    background-color: rgb(228, 152, 38);
+    color: black;
+    margin-right: 15%;
+    margin-top: 6%;
 }
 
 #addbutton:hover{
-    background-color: rgb(30, 64, 175);
+    background-color: rgb(224, 140, 13);
 }
 
 #editbutton{
@@ -38,9 +47,17 @@ textarea {
     background-color: rgb(37, 99, 235);
 }
 
-#viewtable-container{
+#viewtable-container {
     max-height: 60vh;
     width: 50vw;
+}
+
+@media (max-width: 768px) {
+    #viewtable-container {
+        width: 95vw;
+        max-height: 80vh;
+        margin:0%
+    }
 }
 
 #bootstrap-overrides .text-truncate{
@@ -49,4 +66,36 @@ textarea {
 
 #bootstrap-overrides .modal-body, textarea{
     white-space: pre-line;
+}
+
+#bootstrap-overrides main{
+    position: relative;
+    background: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+#bootstrap-overrides main::before {
+  content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../img/Background.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9; 
+    z-index: -1;
+    
+}
+
+#bootstrap-overrides .about{
+    width:45vw;
+    font-size: 1.13em;
+}
+
+@media (max-width: 768px) {
+    #bootstrap-overrides .about {
+        width: 95vw;
+        max-height: 70vh;
+        margin:0%
+    }
 }

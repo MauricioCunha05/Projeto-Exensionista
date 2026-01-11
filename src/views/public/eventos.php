@@ -16,9 +16,9 @@ uasort($eventos_array, function ($a, $b) {
 require 'modals/modal_desc.php';
 ?>
 
-<div class="d-flex flex-column align-items-center mt-2">
+<div class="d-flex flex-column align-items-end">
     <div class="table-responsive border rounded overflow-auto" id="viewtable-container">
-        <table class="table fs-5 mb-2" id="viewtable">
+        <table class="table fs-5" id="viewtable">
             <thead>
                 <tr>
                     <th>Data</th>

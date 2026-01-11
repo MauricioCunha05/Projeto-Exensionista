@@ -34,7 +34,6 @@ require 'views/public/modals/modal_login.php';
                         
                         <li class="nav-item"><a class="nav-link" href="?page=public/sobre">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link" href="?page=<?= $is_admin ? 'admin/eventos_admin':'public/eventos'?>">Eventos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?page=public/doacao">Doações</a></li>  
                     </ul>
                 </div>
             </nav>
