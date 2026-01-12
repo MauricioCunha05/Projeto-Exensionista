@@ -22,3 +22,7 @@ Questões de segurança:
 
 Sobre:
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/027c2d5d-f526-46b4-858f-a63a49373da1" />
+
+
+
+Senha padrão para teste: admin
